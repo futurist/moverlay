@@ -10,7 +10,7 @@
     <!--[if lte IE 9]>
         <script src="http://1111hui.com/js/polyfill.min.js"></script>
         <style>
-          html.lt-ie9 .overlaybg{ background-color:#000000; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=50)"; filter:alpha(opacity=50); }
+          html.lt-ie9 .overlay-bg{ background-color:#000000; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=50)"; filter:alpha(opacity=50); }
         </style>
         <![endif]-->
 
@@ -18,15 +18,14 @@
     <script type="text/javascript" src="http://1111hui.com/js/browserutil.js"></script>
     <style type="text/css">
     body{margin:0; padding:0;}
-.overlay{
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:9999999;
-}
-.overlaybg{
+
+/* overlay bg style */
+.overlay-bg{
     background-color:#000000;
     opacity:0.5;
+}
+/* overlay popup style */
+.overlay-popup{
 }
     </style>
     <script type="text/javascript">
@@ -51,3 +50,7 @@ var c=234
   </body>
 </html>
 <script type="text/javascript" src="overlay.js"></script>
+<script type="text/javascript">
+popupOverlay('overlay', {html: '<b>oisdfjo</b><i>isdofjK</i>', text: '<soidfjo>s1234234doifjoij</sdfoij>\n\n\n\nsdf'})
+document.getElementById('abc').onclick = function () {}
+</script>

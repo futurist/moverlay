@@ -1,7 +1,16 @@
-
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define([], factory) // define(['jquery'], factory)
+  } else if (typeof exports === 'object') {
+    exports = module.exports = factory() // factory(require('jquery'))
+  } else {
+    root.popupOverlay = factory() // should return obj in factory
+  }
+}(this, function () {
+"use strict";
 
 /**
- * @fileOverview
+ * @fileOverview Popup toolkit using mithril
  * @name overlay.js
  * @author micheal.yang
  * @license MIT
@@ -31,16 +40,15 @@ var overlay = {
     var popup = arg.popup
     popup = popup || {}
     popup.style = popup.style || {}
-    popup.style.border = '1px solid red'
+
+    /* below line for debug purpose */
+    // popup.style.border = '1px solid red'
 
     return [
-      m('.overlaybg',
+      m('.overlay-bg',
         {
           style: {
-            // 'position': 'absolute',
-            'z-index': 999,
-            'left': 0,
-            'top': 0,
+            'display': 'block',
             'height': '100%',
             'width': '100%',
 
@@ -51,14 +59,16 @@ var overlay = {
             // filter: 'alpha(opacity=50)',
             // 'zoom':1
           }
-        },
-        "soidjfosjdfo"
+        }
        ),
       m('table.overlay',
         {
           style: {
-            'z-index': 99999,
-            'border': 1 + 'px',
+            'position': 'absolute',
+            top: 0,
+            left: 0,
+            // 'z-index': 99999,
+            // 'border': 1 + 'px',
             'padding': 0 + 'px',
             'margin': 0 + 'px',
             'width': '100%',
@@ -78,11 +88,11 @@ var overlay = {
               }
             },
             [
-              m('div',
+              m('div.overlay-popup',
                 {
                   style: popup.style
                 },
-                m.trust(popup.html)
+                popup.text || m.trust(popup.html)
                )
             ]
            )
@@ -96,5 +106,8 @@ function popupOverlay (rootID, popupObj) {
   m.mount(root, m.component(overlay, {root: root, popup: popupObj}))
 }
 
-popupOverlay('overlay', {html: '<b>oisdfjo</b><i>isdofjK</i>', style: {width: 200 + 'px'}})
-document.getElementById('abc').onclick = function () {}
+// export function
+
+return popupOverlay
+
+}))
