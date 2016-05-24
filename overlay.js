@@ -37,23 +37,22 @@ var overlay = {
       m('.overlaybg',
         {
           style: {
-            'position': 'absolute',
+            // 'position': 'absolute',
             'z-index': 999,
             'left': 0,
             'top': 0,
-            'background': '#000000',
             'height': '100%',
             'width': '100%',
-            'opacity': '0.5',
 
             /* below try to fix IE8 render problem, but not work:(  */
-            // 'background-color': '#000000',
-            // 'filter': 'none !important',
-            // '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)',
-            // 'filter': 'alpha(opacity=50)',
+            // backgroundColor: '#000000',
+            // filter: 'none !important',
+            // filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)',
+            // filter: 'alpha(opacity=50)',
             // 'zoom':1
           }
-        }
+        },
+        "soidjfosjdfo"
        ),
       m('table.overlay',
         {

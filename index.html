@@ -1,12 +1,17 @@
 <!doctype html>
-<html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <title>untitled</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <!--[if lte IE 9]>
         <script src="http://1111hui.com/js/polyfill.min.js"></script>
-        <style>*{ filter: none !important; }</style>
+        <style>
+          html.lt-ie9 .overlaybg{ background-color:#000000; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=50)"; filter:alpha(opacity=50); }
+        </style>
         <![endif]-->
 
     <script type="text/javascript" src="http://1111hui.com/js/mithril.js"></script>
@@ -18,6 +23,10 @@
     top:0;
     left:0;
     z-index:9999999;
+}
+.overlaybg{
+    background-color:#000000;
+    opacity:0.5;
 }
     </style>
     <script type="text/javascript">
