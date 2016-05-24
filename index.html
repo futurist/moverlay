@@ -25,7 +25,7 @@
     opacity:0.5;
 }
 /* overlay popup style */
-.overlay-popup{
+.overlay-content{
 }
     </style>
     <script type="text/javascript">
@@ -34,6 +34,18 @@ function soidfj(sdifj) {
   var abc=1234
 }
 var c=234
+var data= 'this is the mithril com test'
+var test={
+  controller : function(parentCtrl){
+
+  },
+  view       : function(ctrl, parentCtrl){
+    return m('.abc',{
+      onclick: function(e){mOverlay.close(parentCtrl.root)}
+    }, data)
+  }
+}
+
     </script>
   </head>
   <body>
@@ -51,6 +63,6 @@ var c=234
 </html>
 <script type="text/javascript" src="overlay.js"></script>
 <script type="text/javascript">
-popupOverlay('overlay', {html: '<b>oisdfjo</b><i>isdofjK</i>', text: '<soidfjo>s1234234doifjoij</sdfoij>\n\n\n\nsdf'})
-document.getElementById('abc').onclick = function () {}
+mOverlay.pop('#overlay', {com:test, html: '<b>oisdfjo</b><i>isdofjK</i>', text: '<b>s1234234doifjoij</b>\n\n\n\nsdf'})
+mOverlay.pop('#df', {com:test, html: '<b>oisdfjo</b><i>isdofjK</i>', text: '<b>s1234234doifjoij</b>\n\n\n\nsdf'})
 </script>
