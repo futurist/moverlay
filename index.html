@@ -43,7 +43,7 @@ var test={
   view       : function(ctrl){
     return m('.abc',{
       onclick: function(e){
-        var target = event.target||event.srcElement
+        var target = e.target||event.srcElement
         mOverlay.close(target)
       }
     }, data)
