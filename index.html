@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
     <title>untitled</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <!--[if lte IE 9]>
@@ -36,12 +37,15 @@ function soidfj(sdifj) {
 var c=234
 var data= 'this is the mithril com test'
 var test={
-  controller : function(parentCtrl){
+  controller : function(){
 
   },
-  view       : function(ctrl, parentCtrl){
+  view       : function(ctrl){
     return m('.abc',{
-      onclick: function(e){mOverlay.close(parentCtrl.root)}
+      onclick: function(e){
+        var target = event.target||event.srcElement
+        mOverlay.close(target)
+      }
     }, data)
   }
 }
@@ -52,7 +56,7 @@ var test={
     <div id="overlay"></div>
     <p align="left" align="center">sdofjosf
       sdjfiosdjfosdfj</p>
-    <abc class="sdoif" id="df"><ul><li class="">sdfoij</li></ul></abc><p></p>sdoifjo
+    <div class="sdoif" id="df"><ul><li class="">sdfoij</li></ul></div><p></p>sdoifjo
     <ul>
       <p><span id="abc" class="sdof">click here to popup overlay</span></p>
       <li></li>

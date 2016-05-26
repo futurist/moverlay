@@ -22,6 +22,7 @@
     controller: function (arg) {
       var root = arg.root
       var ctrl = this
+      root.classList.add('overlay-root')
       root.style.position = 'absolute'
       root.style.left = 0
       root.style.top = 0
@@ -47,9 +48,8 @@
       return [
         m('.overlay-bg',
           {
-            config:function(e) {
+            config: function (e) {
               ctrl.root = e.parentElement
-              console.log(ctrl)
             },
             style: {
               'display': 'block',
@@ -111,13 +111,18 @@
   }
 
   function closeOverlay (root) {
-    root = typeof root=='string' ? document.querySelector(root) : root
-    m.mount(root, null)
-    root.style.display = 'none'
+    if(!root) return
+    root = typeof root == 'string' ? document.querySelector(root) : root.closest('.overlay-root')
+    if (root) {
+      m.mount(root, null)
+      root.classList.remove('overlay-root')
+      root.style.display = 'none'
+    }
   }
   function popupOverlay (root, popupObj) {
-    root = typeof root=='string' ? document.querySelector(root) : root
-    m.mount(root, m.component(overlay, {root: root, popup: popupObj}))
+    if(!root) return
+    root = typeof root == 'string' ? document.querySelector(root) : root
+    if (root) m.mount(root, m.component(overlay, {root: root, popup: popupObj}))
   }
 
   // export function
