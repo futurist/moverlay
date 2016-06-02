@@ -1,10 +1,10 @@
-(function (root, factory) {
+(function (_global, factory) {
   if (typeof define === 'function' && define.amd) {
     define([], factory) // define(['jquery'], factory)
   } else if (typeof exports === 'object') {
-    exports = module.exports = factory() // factory(require('jquery'))
+    module.exports = factory() // factory(require('jquery'))
   } else {
-    root.mOverlay = factory() // should return obj in factory
+    _global.mOverlay = factory() // should return obj in factory
   }
 }(this, function () {
   'use strict'
@@ -18,12 +18,29 @@
 
   // require js/broswerutil.js file
 
+  /**
+   * get browser window size
+   * @returns [w,h] windows width and height
+   */
+  function _getWindowSize () {
+    if (window.innerWidth) {
+      return [window.innerWidth, window.innerHeight]
+    }
+    else if (document.documentElement && document.documentElement.clientHeight) {
+      return [document.documentElement.clientWidth, document.documentElement.clientHeight]
+    }
+    else if (document.body) {
+      return [document.body.clientWidth, document.body.clientHeight]
+    }
+    return 0
+  }
+
   var overlay = {
     controller: function (arg) {
       var root = arg.root
       var ctrl = this
       root.classList.add('overlay-root')
-      root.style.position = 'absolute'
+      root.style.position = 'fixed'
       root.style.left = 0
       root.style.top = 0
       root.style.zIndex = 99999
@@ -88,7 +105,7 @@
                 'valign': 'middle',
                 'style': {
                   'position': 'relative',
-                  'vertical-align': 'middle'
+                  // 'vertical-align': 'middle'
                 }
               },
               [
@@ -110,22 +127,34 @@
     }
   }
 
-  function closeOverlay (root) {
-    if(!root) return
+  function clearRoot(root) {
+    m.mount(root, null)
+    root.classList.remove('overlay-root')
+    root.style.display = 'none'
+  }
+
+  function closeOverlay (root, ret) {
+    if (!root) return
     root = typeof root == 'string' ? document.querySelector(root) : root.closest('.overlay-root')
     if (root) {
-      m.mount(root, null)
-      root.classList.remove('overlay-root')
-      root.style.display = 'none'
+      clearRoot(root)
+      var callback = root.overlayStack.pop()
+      if(callback) callback.call(this, ret)
     }
   }
-  function popupOverlay (root, popupObj) {
-    if(!root) return
+  function popupOverlay (root, popup) {
+    if (arguments.length < 2) popup = root, root = null
+    if (!root) root = '#overlay'
     root = typeof root == 'string' ? document.querySelector(root) : root
-    if (root) m.mount(root, m.component(overlay, {root: root, popup: popupObj}))
+    if (root){
+      root.overlayStack = root.overlayStack||[]
+      root.overlayStack.push(popup.onclose)
+      m.mount(root, m.component(overlay, {root: root, popup: popup}))
+    }
   }
 
   // export function
 
-  return {pop: popupOverlay, close: closeOverlay}
+  return {open: popupOverlay, show: popupOverlay, close: closeOverlay, hide: closeOverlay}
 }))
+
