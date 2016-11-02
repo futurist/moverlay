@@ -1,0 +1,29 @@
+{
+  "name": "moverlay",
+  "version": "0.2.0",
+  "description": "Mithril popup overlay manager.",
+  "main": "./dist/moverlay.cjs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files":["dist"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/futurist/moverlay.git"
+  },
+  "keywords": [
+    "mithril",
+    "overlay",
+    "popup"
+  ],
+  "author": "James Yang <jamesyang999@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/futurist/moverlay/issues"
+  },
+  "homepage": "https://github.com/futurist/moverlay#readme",
+  "devDependencies": {
+    "rollup-plugin-buble": "^0.14.0",
+    "rollup-plugin-minify": "^1.0.3"
+  }
+}
