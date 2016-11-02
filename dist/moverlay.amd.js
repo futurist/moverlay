@@ -2,6 +2,9 @@ define(['mithril'], function (m) { 'use strict';
 
 m = 'default' in m ? m['default'] : m;
 
+// below line will not insert for bare.js rollup config
+// import m from 'mithril'
+
 /**
  * @fileOverview Popup toolkit using mithril
  * @name overlay.js

@@ -1,5 +1,3 @@
-import m from 'mithril';
-
 // below line will not insert for bare.js rollup config
 // import m from 'mithril'
 

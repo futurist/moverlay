@@ -1,4 +1,4 @@
-import m from 'mithril';
+'use strict';
 
 // below line will not insert for bare.js rollup config
 // import m from 'mithril'
@@ -150,4 +150,4 @@ function popupOverlay (root, popup) {
 // export function
 var moverlay = {open: popupOverlay, show: popupOverlay, close: closeOverlay, hide: closeOverlay};
 
-export default moverlay;
+module.exports = moverlay;

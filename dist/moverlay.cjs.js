@@ -4,6 +4,9 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var m = _interopDefault(require('mithril'));
 
+// below line will not insert for bare.js rollup config
+// import m from 'mithril'
+
 /**
  * @fileOverview Popup toolkit using mithril
  * @name overlay.js
