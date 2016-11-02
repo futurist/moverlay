@@ -1,4 +1,4 @@
-var moverlay = (function (m) {
+var mOverlay = (function (m) {
 'use strict';
 
 m = 'default' in m ? m['default'] : m;

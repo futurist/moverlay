@@ -1,4 +1,4 @@
-var moverlay = (function () {
+var mOverlay = (function () {
 'use strict';
 
 // below line will not insert for bare.js rollup config

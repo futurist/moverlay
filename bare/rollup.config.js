@@ -7,11 +7,11 @@ import path from 'path'
 
 var pkg = fs.readFileSync(path.join(__dirname, '../package.json'), 'utf8')
 pkg = pkg.replace('"name": "moverlay",', '"name": "moverlay-bare",')
-fs.writeFileSync(path.join(__dirname, 'package.json'), 'utf8')
+fs.writeFileSync(path.join(__dirname, 'package.json'), pkg, 'utf8')
 
 export default {
   entry: './src/moverlay.js',
-  moduleName: 'moverlay',
+  moduleName: 'mOverlay',
   plugins:[
     buble(),
     minify({iife: 'bare/dist/moverlay.min.js'})

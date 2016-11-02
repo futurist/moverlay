@@ -9,7 +9,7 @@ import m from 'mithril'
 
 export default {
   entry: './src/moverlay.js',
-  moduleName: 'moverlay',
+  moduleName: 'mOverlay',
   plugins:[
     {
       transform: function(src) {
