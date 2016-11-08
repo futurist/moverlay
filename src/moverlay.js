@@ -9,8 +9,6 @@
  * @license MIT
  */
 
-// require js/broswerutil.js file
-
 /**
  * get browser window size
  * @returns [w,h] windows width and height
@@ -34,6 +32,7 @@ var overlay = {
     var ctrl = this
     root.classList.add('overlay-root')
     root.style.position = 'fixed'
+    root.style.display = 'block'
     root.style.left = 0
     root.style.top = 0
     root.style.zIndex = 99999
