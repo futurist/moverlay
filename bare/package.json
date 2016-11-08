@@ -1,6 +1,6 @@
 {
   "name": "moverlay-bare",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Mithril popup overlay manager.",
   "main": "./dist/moverlay.cjs.js",
   "scripts": {
